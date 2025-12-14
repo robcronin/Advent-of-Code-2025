@@ -69,6 +69,12 @@ export class Grid<ValueType> {
     this.gridMap[sx][sy] = value;
   };
 
+  public setIfValid = (coords: Coords, value: ValueType) => {
+    if (this.isCoordValid(coords)) {
+      this.set(coords, value);
+    }
+  };
+
   public runSettingFn = (
     fn: ({ coords, value }: { coords: Coords; value: ValueType }) => ValueType,
   ) => {
